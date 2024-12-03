@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import banner from "../assets/banner.avif";
 import { useContext } from "react";
 import { AuthContex } from "../Router/AuthProvider";
 
 const Registration = () => {
-  const {createUser} =useContext(AuthContex)
+  const navigate = useNavigate();
+  const { createUser } = useContext(AuthContex);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,14 +17,14 @@ const Registration = () => {
 
     // create user
     createUser(email, password)
-   .then(result =>{
-    console.log(result.user);
-   })
-   .catch(error =>{
-    console.log("ERROR", error.message);
-   })
-
-
+      .then((result) => {
+        console.log(result.user);
+        e.target.reset();
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("ERROR", error.message);
+      });
   };
 
   return (
