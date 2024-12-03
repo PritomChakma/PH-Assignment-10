@@ -4,7 +4,9 @@ import AddReview from "../Pages/AddReview";
 import AllReview from "../Pages/AllReview";
 import GameWatchList from "../Pages/GameWatchList";
 import Home from "../Pages/Home";
+import Login from "../Pages/Login";
 import MyReview from "../Pages/MyReview";
+import Registration from "../Pages/Registration";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "/gameWatchList",
         element: <GameWatchList></GameWatchList>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/registration",
+        element: <Registration></Registration>,
       },
     ],
   },
