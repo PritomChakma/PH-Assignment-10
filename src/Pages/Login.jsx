@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import banner from "../assets/banner.avif";
+import banner from "../assets/loginnBanner.jpg";
 import { AuthContex } from "../Router/AuthProvider";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { loginUser } = useContext(AuthContex);
+  const { loginUser, googleLogin } = useContext(AuthContex);
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,6 +16,18 @@ const Login = () => {
 
     // login user
     loginUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        e.target.reset();
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("ERROR", error.message);
+      });
+  };
+
+  const handdleGoogleLogin = () => {
+    googleLogin()
       .then((result) => {
         console.log(result.user);
         e.target.reset();
@@ -48,7 +60,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your Email"
-                className="bg-gray-700 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="bg-gray-900 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                 required
               />
             </div>
@@ -62,7 +74,7 @@ const Login = () => {
                 type="password"
                 name="password"
                 placeholder="Enter a Password"
-                className="bg-gray-700 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="bg-gray-900 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                 required
               />
             </div>
@@ -79,6 +91,12 @@ const Login = () => {
               Register
             </Link>
           </p>
+          <div>
+            <button onClick={handdleGoogleLogin} className="btn w-full">
+              <i className="fa-brands fa-google text-xl text-blue-600"></i>{" "}
+              Login With Google{" "}
+            </button>
+          </div>
         </div>
       </div>
     </div>

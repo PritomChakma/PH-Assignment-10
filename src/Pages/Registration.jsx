@@ -1,6 +1,6 @@
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import banner from "../assets/banner.avif";
-import { useContext } from "react";
 import { AuthContex } from "../Router/AuthProvider";
 
 const Registration = () => {
@@ -49,7 +49,7 @@ const Registration = () => {
                 type="text"
                 name="name"
                 placeholder="Enter your Email"
-                className="bg-gray-700 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="bg-gray-900 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                 required
               />
             </div>
@@ -63,7 +63,7 @@ const Registration = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your Email"
-                className="bg-gray-700 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="bg-gray-900 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                 required
               />
             </div>
@@ -77,7 +77,7 @@ const Registration = () => {
                 type="password"
                 name="password"
                 placeholder="Enter a Password"
-                className="bg-gray-700 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="bg-gray-900 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                 required
               />
             </div>
