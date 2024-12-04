@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "../Components/Banner";
 import HomeCard from "../Components/HomeCard";
+import TypeWriter from "../Components/TypeWriter";
 
 const Home = () => {
   const reviews = useLoaderData();
@@ -14,6 +15,10 @@ const Home = () => {
       <div>
         {/* banner */}
         <Banner></Banner>
+      </div>
+
+      <div>
+        <TypeWriter></TypeWriter>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 w-11/12 mx-auto mt-10 py-5">
