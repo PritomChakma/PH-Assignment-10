@@ -1,20 +1,36 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContex } from "../Router/AuthProvider";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContex);
+  const [theme, setTheme] = useState("light"); 
+
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
 
   const handleSignOut = () => {
     signOutUser()
       .then(() => {
-        console.log("sign out successfully");
+        console.log("Sign out successfully");
       })
       .catch((error) => console.log("ERROR", error.message));
   };
+
   return (
-    <div className=" ">
-      <div className="navbar bg-gray-900 text-white h-20 ">
+    <div className="">
+      <div className="navbar bg-gray-900 text-white h-20">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,18 +62,52 @@ const Navbar = () => {
           </div>
           <a className="btn btn-ghost text-xl">GameHaven</a>
         </div>
-        <div className="navbar-center hidden lg:flex ">
+        <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-5">
             <NavLink>Home</NavLink>
             <NavLink to="/allReview">All Reviews</NavLink>
             <NavLink to="/addReview">Add Review </NavLink>
             <NavLink to="/myReview">My Reviews</NavLink>
             <NavLink to="/gameWatchList">WatchList</NavLink>
+            {/* Theme Toggle */}
+            <label className="flex cursor-pointer gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+              </svg>
+              <input
+                type="checkbox"
+                checked={theme === "dark"}
+                onChange={toggleTheme}
+                className="toggle theme-controller"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </label>
           </ul>
         </div>
-
         <div className="relative flex items-center space-x-4 navbar-end">
-          {/* User Avatar */}
           <div className="relative group">
             {user ? (
               <img
@@ -66,15 +116,12 @@ const Navbar = () => {
                 className="w-10 h-10 rounded-full border-2 border-gray-500 cursor-pointer"
               />
             ) : (
-              <i class="fa-solid fa-user"></i>
+              <i className="fa-solid fa-user"></i>
             )}
-            {/* Tooltip */}
             <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-gray-900 text-white text-sm rounded-md px-3 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               {user?.displayName}
             </div>
           </div>
-
-          {/* Logout Button */}
           {user ? (
             <NavLink
               to="/login"
