@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HomeCard = ({ review }) => {
   const { photo, name, description, rating } = review;
   return (
@@ -29,7 +31,9 @@ const HomeCard = ({ review }) => {
       </div>
       <div className="flex justify-between">
         <div>
-          <button className="btn">Explore Details"</button>
+          <Link to={`/exploreDetails/${review._id}`}>
+            <button className="btn">Explore Details</button>
+          </Link>
         </div>
         <div>
           <i className="fa-solid fa-heart text-xl text-red-500 btn"></i>

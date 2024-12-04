@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import UpdatedReview from "../Components/UpdatedReview";
+import ExploreDetails from "../Components/ExploreDetails";
 import MainLayout from "../Layout/MainLayout";
 import AddReview from "../Pages/AddReview";
 import AllReview from "../Pages/AllReview";
@@ -50,10 +50,16 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "updateReview/:id",
-        element: <UpdatedReview></UpdatedReview>,
+        path: "/exploreDetails/:id",
+        element: <ExploreDetails></ExploreDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/myReview/${params.id}`),
+          fetch(`http://localhost:5000/allReview/${params.id}`),
+      },
+
+      {
+        path: "/exploreDetails/:id",
+        element: <ExploreDetails></ExploreDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/allReview/${params.id}`),
       },
       {
         path: "/login",
