@@ -12,7 +12,6 @@ const MyReview = () => {
         setMyReview(data);
       });
   }, [user]);
-  console.log(myReview);
 
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 w-11/12 mx-auto">

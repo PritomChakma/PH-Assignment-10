@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import UpdatedReview from "../Components/UpdatedReview";
 import MainLayout from "../Layout/MainLayout";
 import AddReview from "../Pages/AddReview";
 import AllReview from "../Pages/AllReview";
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
             <GameWatchList></GameWatchList>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/updateReview/:id",
+        element: <UpdatedReview></UpdatedReview>,
+        loader:({params})=>(`http://localhost:5000/updateReview/${params.id}`)
       },
       {
         path: "/login",
