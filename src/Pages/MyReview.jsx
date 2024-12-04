@@ -1,15 +1,26 @@
+import { useContext, useEffect, useState } from "react";
+import { AuthContex } from "../Router/AuthProvider";
+import MyReviewCard from "./MyReviewCard";
+
 const MyReview = () => {
+  const { user } = useContext(AuthContex);
+  const [myReview, setMyReview] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/myReview?email=${user.email}`)
+      .then((req) => req.json())
+      .then((data) => {
+        setMyReview(data);
+      });
+  }, [user]);
+  console.log(myReview);
+
   return (
-    <div>
-     my reviewwwwwwwwwwww
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 w-11/12 mx-auto">
+      {myReview.map((myRev) => (
+        <MyReviewCard key={myRev._id} myRev={myRev}></MyReviewCard>
+      ))}
     </div>
   );
 };
 
 export default MyReview;
-{/* <select name="genre" value={reviewData.genre} required>
-<option value="">Select Genre</option>
-<option value="Action">Action</option>
-<option value="RPG">RPG</option>
-<option value="Adventure">Adventure</option>
-</select> */}

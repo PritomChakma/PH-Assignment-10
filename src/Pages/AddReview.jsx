@@ -1,16 +1,43 @@
+import Swal from 'sweetalert2'
 import banner from "../assets/AddMy.jpeg";
+import { useContext } from 'react';
+import { AuthContex } from '../Router/AuthProvider';
 
 const AddReview = () => {
+    const {user} = useContext(AuthContex)
+    console.log(user);
   const handleAddReview = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
+    const email = user.email
     const photo = form.photo.value;
     const rating = form.rating.value;
     const year = form.year.value;
     const description = form.description.value;
-    const addReview = { name, photo, rating, year, description };
+    const addReview = { name, photo, rating, year, description,email };
     console.log(addReview);
+  
+    // send data to the server
+    fetch("http://localhost:5000/allReview",{
+        method:"POST",
+        headers:{
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(addReview)
+    })
+    .then(res =>res.json())
+    .then(data =>{
+        console.log(data);
+        if(data.insertedId){
+            Swal.fire({
+                title: 'success',
+                text: 'Added Review Scuccessfully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+        }
+    })
   };
 
   return (
