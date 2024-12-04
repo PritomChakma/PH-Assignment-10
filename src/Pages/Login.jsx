@@ -49,6 +49,7 @@ const Login = () => {
         }}
       >
         <div className="border-2 backdrop-blur-sm rounded-lg shadow-md p-8 max-w-sm w-full">
+          <h3 className="text-white font-bold text-center text-xl mb-5">Login Form</h3>
           <form onSubmit={handleLogin}>
             <div className="">
               <label className="label ">

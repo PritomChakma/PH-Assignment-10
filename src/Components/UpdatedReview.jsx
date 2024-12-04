@@ -6,7 +6,7 @@ import { AuthContex } from "../Router/AuthProvider";
 const UpdatedReview = () => {
   const { user } = useContext(AuthContex);
   const review = useLoaderData() || {};
-  const { _id, photo, name, description, rating } = review;
+  const { _id, photo, name, description, rating, year } = review;
   console.log(name);
   const handleUpdateReview = (e) => {
     e.preventDefault();
@@ -68,6 +68,7 @@ const UpdatedReview = () => {
                 <input
                   type="text"
                   name="name"
+                  defaultValue={name}
                   placeholder="Enter your Game Title"
                   className="bg-gray-900 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                   required
@@ -81,6 +82,7 @@ const UpdatedReview = () => {
                 </label>
                 <input
                   type="text"
+                  defaultValue={photo}
                   name="photo"
                   placeholder="Enter photo url"
                   className="bg-gray-900 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -99,6 +101,7 @@ const UpdatedReview = () => {
                 </label>
                 <input
                   type="number"
+                  defaultValue={rating}
                   id="rating"
                   name="rating"
                   className="bg-gray-900 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -116,6 +119,7 @@ const UpdatedReview = () => {
                 </label>
                 <input
                   type="number"
+                  defaultValue={year}
                   id="year"
                   name="year"
                   className="bg-gray-900 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -135,6 +139,7 @@ const UpdatedReview = () => {
               </label>
               <textarea
                 id="description"
+                defaultValue={description}
                 name="description"
                 className="bg-gray-900 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                 placeholder="Write your game review here..."

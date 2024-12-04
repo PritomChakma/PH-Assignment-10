@@ -5,14 +5,15 @@ import { AuthContex } from "../Router/AuthProvider";
 
 const Registration = () => {
   const navigate = useNavigate();
-  const { createUser } = useContext(AuthContex);
+  const { createUser, setUser } = useContext(AuthContex);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
+    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    const user = { name, email, password };
+    const user = { name, email, password, photo };
     console.log(user);
 
     // create user
@@ -20,6 +21,7 @@ const Registration = () => {
       .then((result) => {
         console.log(result.user);
         e.target.reset();
+        setUser(result.user);
         navigate("/");
       })
       .catch((error) => {
@@ -38,6 +40,9 @@ const Registration = () => {
         }}
       >
         <div className="border-2 backdrop-blur-sm rounded-lg shadow-md p-8 max-w-sm w-full">
+          <h3 className="text-white font-bold text-center text-xl mb-5">
+            Registration Form
+          </h3>
           <form onSubmit={handleRegister}>
             <div className="">
               <label className="label ">
@@ -70,6 +75,20 @@ const Registration = () => {
             <div className="">
               <label className="label ">
                 <span className="block text-gray-300 text-sm font-bold mb-2">
+                  Upload Your Profile
+                </span>
+              </label>
+              <input
+                type="text"
+                name="photo"
+                placeholder="Enter your imgbb Photo"
+                className="bg-gray-900 text-gray-200 placeholder-gray-400 w-full p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                required
+              />
+            </div>
+            <div className="">
+              <label className="label ">
+                <span className="block text-gray-300 text-sm font-bold mb-2">
                   Password
                 </span>
               </label>
@@ -84,7 +103,7 @@ const Registration = () => {
 
             <div className=" mt-5 ">
               <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full">
-                Login
+                Registration
               </button>
             </div>
           </form>
