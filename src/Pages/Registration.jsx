@@ -109,7 +109,7 @@ const Registration = () => {
           </form>
           <p className="text-center font-bold my-3 text-white">
             if You have Already Account? Please
-            <Link className="text-[#4335A7]" to="/login">
+            <Link className="text-green-500" to="/login">
               Login
             </Link>
           </p>

@@ -88,7 +88,7 @@ const Login = () => {
           </form>
           <p className="text-center font-bold my-3 text-white">
             You Dont have Account? Please
-            <Link className="text-[#4335A7]" to="/registration">
+            <Link className="text-green-500" to="/registration">
               Register
             </Link>
           </p>
