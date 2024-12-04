@@ -5,7 +5,7 @@ import { AuthContex } from '../Router/AuthProvider';
 
 const AddReview = () => {
     const {user} = useContext(AuthContex)
-    console.log(user);
+    // console.log(user);
   const handleAddReview = (e) => {
     e.preventDefault();
     const form = e.target;

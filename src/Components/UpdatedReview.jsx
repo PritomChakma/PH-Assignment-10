@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import banner from "../assets/AddMy.jpeg";
+import { AuthContex } from "../Router/AuthProvider";
 const UpdatedReview = () => {
-  const review = useLoaderData();
+  const { user } = useContext(AuthContex);
+  const review = useLoaderData() || {};
   const { _id, photo, name, description, rating } = review;
-
+  console.log(name);
   const handleUpdateReview = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -18,8 +21,8 @@ const UpdatedReview = () => {
     console.log(addReview);
 
     // send data to the server
-    fetch("http://localhost:5000/allReview", {
-      method: "POST",
+    fetch(`http://localhost:5000/myReview/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -28,7 +31,7 @@ const UpdatedReview = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "success",
             text: "Added Review Scuccessfully",

@@ -1,14 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContex } from "../Router/AuthProvider";
 
-const MyReviewCard = ({ myRev }) => {
-  const { user } = useContext(AuthContex);
+
+const MyReviewCard = ({ myRev, myReview, setMyReview }) => {
   const { _id, photo, name, description, rating } = myRev;
 
   const handleDelete = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -25,13 +23,14 @@ const MyReviewCard = ({ myRev }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
                 text: "Your file has been deleted.",
                 icon: "success",
               });
+              const remaining = myReview.filter((rev) => rev._id !== _id);
+              setMyReview(remaining);
             }
           });
       }
@@ -76,7 +75,7 @@ const MyReviewCard = ({ myRev }) => {
             onClick={() => handleDelete(_id)}
             className="btn join-item bg-[#EA4744] text-white"
           >
-            <i class="fa-solid fa-trash"></i>
+            <i className="fa-solid fa-trash"></i>
           </button>
         </div>
       </div>

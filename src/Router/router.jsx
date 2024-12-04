@@ -49,9 +49,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/updateReview/:id",
+        path: "updateReview/:id",
         element: <UpdatedReview></UpdatedReview>,
-        loader:({params})=>(`http://localhost:5000/updateReview/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/myReview/${params.id}`),
       },
       {
         path: "/login",
