@@ -1,11 +1,38 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from "react-router-dom";
 import banner from "../assets/loginnBanner.jpg";
 import { AuthContex } from "../Router/AuthProvider";
 
 const Registration = () => {
   const navigate = useNavigate();
-  const { createUser, setUser } = useContext(AuthContex);
+  const { createUser, setUser, user, updateUserProfile } =
+    useContext(AuthContex);
+
+  const [passwordError, setPasswordError] = useState("");
+
+  const validatePassword = (password) => {
+    const uppercase = /[A-Z]/;
+    const lowercase = /[a-z]/;
+    const minLength = 6;
+
+    if (!uppercase.test(password)) {
+      setPasswordError("Password must contain at least one uppercase letter.");
+      return false;
+    }
+    if (!lowercase.test(password)) {
+      setPasswordError("Password must contain at least one lowercase letter.");
+      return false;
+    }
+    if (password.length < minLength) {
+      setPasswordError("Password must be at least 6 characters long.");
+      return false;
+    }
+
+    setPasswordError("");
+    return true;
+  };
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,17 +42,22 @@ const Registration = () => {
     const password = form.password.value;
     const user = { name, email, password, photo };
     console.log(user);
-
+    if (!validatePassword(password)) {
+      return;
+    }
     // create user
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
-        e.target.reset();
-        setUser(result.user);
-        navigate("/");
+        const user = result.user;
+        setUser(user);
+        updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
+          toast.success("Registration successful");
+          navigate("/");
+        });
       })
       .catch((error) => {
-        console.log("ERROR", error.message);
+        toast.error("Registration failed. Please try again.");
+        setPasswordError({ ...error, login: err.code });
       });
   };
 
@@ -34,7 +66,7 @@ const Registration = () => {
       <div
         className="min-h-screen bg-gray-900 flex items-center justify-center"
         style={{
-          backgroundImage: `url(${banner})`, // Replace with the actual image URL
+          backgroundImage: `url(${banner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -100,7 +132,9 @@ const Registration = () => {
                 required
               />
             </div>
-
+            {passwordError && (
+              <p className="text-red-500 text-sm mt-1">{passwordError}</p>
+            )}
             <div className=" mt-5 ">
               <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full">
                 Registration
