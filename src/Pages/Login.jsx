@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import banner from "../assets/loginnBanner.jpg";
 import { AuthContex } from "../Router/AuthProvider";
@@ -20,8 +21,10 @@ const Login = () => {
         console.log(result.user);
         e.target.reset();
         navigate("/");
+        toast.success("Login successfully");
       })
       .catch((error) => {
+        toast.error("Login failed. Please try again.");
         console.log("ERROR", error.message);
       });
   };
@@ -32,8 +35,10 @@ const Login = () => {
         console.log(result.user);
         e.target.reset();
         navigate("/");
+        toast.success("Login successfully");
       })
       .catch((error) => {
+        toast.success("Google Login successfully");
         console.log("ERROR", error.message);
       });
   };
@@ -49,7 +54,9 @@ const Login = () => {
         }}
       >
         <div className="border-2 backdrop-blur-sm rounded-lg shadow-md p-8 max-w-sm w-full">
-          <h3 className="text-white font-bold text-center text-xl mb-5">Login Form</h3>
+          <h3 className="text-white font-bold text-center text-xl mb-5">
+            Login Form
+          </h3>
           <form onSubmit={handleLogin}>
             <div className="">
               <label className="label ">
