@@ -18,7 +18,7 @@ const ReviewCard = ({ review }) => {
         description: review.description,
         photo: review.photo,
         rating: review.rating,
-        email: user?.email, 
+        email: user?.email,
       }),
     })
       .then((res) => res.json())
@@ -65,14 +65,18 @@ const ReviewCard = ({ review }) => {
       <div className="flex justify-between">
         <div>
           <Link to={`/exploreDetails/${review._id}`}>
-            <button className="btn">Explore Details</button>
+            <button className="btn rounded-full px-4 bg-gray-900 text-white">
+              Explore Details
+            </button>
           </Link>
         </div>
         <div>
-          <i
+          <button
             onClick={() => handleAddWishList(review)}
-            className="fa-solid fa-heart text-xl text-red-500 hover:text-red-700 cursor-pointer"
-          ></i>
+            className="btn rounded-full px-4 text-white bg-[#9538E2]"
+          >
+            Add to WatchList
+          </button>
         </div>
       </div>
     </div>
