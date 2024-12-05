@@ -5,7 +5,9 @@ const GameWatchList = () => {
   const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/watchlist?email=${user.email}`)
+    fetch(
+      `https://ph-assignment-10-server-six.vercel.app/watchlist?email=${user.email}`
+    )
       .then((req) => req.json())
       .then((data) => {
         setWishlist(data);
@@ -40,10 +42,7 @@ const GameWatchList = () => {
                 </div>
                 <br />
                 <div className="flex gap-6">
-                  <button
-                  
-                    className="btn rounded-full px-4 text-white bg-[#9538E2]"
-                  >
+                  <button className="btn rounded-full px-4 text-white bg-[#9538E2]">
                     Remove to WatchList
                   </button>
                 </div>

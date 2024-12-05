@@ -8,7 +8,7 @@ const ExploreDetails = () => {
   const review = useLoaderData();
 
   const handleAddWishList = (review) => {
-    fetch("http://localhost:5000/watchlist", {
+    fetch("https://ph-assignment-10-server-six.vercel.app/watchlist", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

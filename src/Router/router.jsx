@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import ExploreDetails from "../Components/ExploreDetails";
+import UpdatedReview from "../Components/UpdatedReview";
 import MainLayout from "../Layout/MainLayout";
 import AddReview from "../Pages/AddReview";
 import AllReview from "../Pages/AllReview";
@@ -9,7 +10,6 @@ import Login from "../Pages/Login";
 import MyReview from "../Pages/MyReview";
 import Registration from "../Pages/Registration";
 import PrivateRoute from "./PrivateRoute";
-import UpdatedReview from "../Components/UpdatedReview";
 
 const router = createBrowserRouter([
   {
@@ -19,12 +19,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/allReview"),
+        loader: () =>
+          fetch("https://ph-assignment-10-server-six.vercel.app/allReview"),
       },
       {
         path: "/allReview",
         element: <AllReview></AllReview>,
-        loader: () => fetch("http://localhost:5000/allReview"),
+        loader: () =>
+          fetch("https://ph-assignment-10-server-six.vercel.app/allReview"),
       },
       {
         path: "/addReview",
@@ -54,13 +56,18 @@ const router = createBrowserRouter([
         path: "/updateReview/:id",
         element: <UpdatedReview></UpdatedReview>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allReview/${params.id}`),
+          fetch(
+            `https://ph-assignment-10-server-six.vercel.app/allReview/${params.id}`
+          ),
       },
 
       {
         path: "/exploreDetails/:id",
         element: <ExploreDetails></ExploreDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allReview/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://ph-assignment-10-server-six.vercel.app/allReview/${params.id}`
+          ),
       },
       {
         path: "/login",

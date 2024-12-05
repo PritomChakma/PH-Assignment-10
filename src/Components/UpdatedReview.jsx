@@ -21,7 +21,7 @@ const UpdatedReview = () => {
     console.log(addReview);
 
     // send data to the server
-    fetch(`http://localhost:5000/myReview/${_id}`, {
+    fetch(`https://ph-assignment-10-server-six.vercel.app/myReview/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

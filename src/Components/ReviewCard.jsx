@@ -1,14 +1,14 @@
 import { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContex } from "../Router/AuthProvider";
-import { toast } from "react-hot-toast";
 
 const ReviewCard = ({ review }) => {
   const { user } = useContext(AuthContex);
   const { photo, name, description, rating } = review;
 
   const handleAddWishList = (review) => {
-    fetch("http://localhost:5000/watchlist", {
+    fetch("https://ph-assignment-10-server-six.vercel.app/watchlist", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

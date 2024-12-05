@@ -1,7 +1,5 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-
 
 const MyReviewCard = ({ myRev, myReview, setMyReview }) => {
   const { _id, photo, name, description, rating } = myRev;
@@ -17,10 +15,13 @@ const MyReviewCard = ({ myRev, myReview, setMyReview }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/myReview/${_id}`, {
-          method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-        })
+        fetch(
+          `https://ph-assignment-10-server-six.vercel.app/myReview/${_id}`,
+          {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
