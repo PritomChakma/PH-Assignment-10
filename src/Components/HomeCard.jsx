@@ -1,7 +1,40 @@
+import { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
-
+import { AuthContex } from "../Router/AuthProvider";
 const HomeCard = ({ review }) => {
+  const { user } = useContext(AuthContex);
   const { photo, name, description, rating } = review;
+
+  const handleAddWishList = (review) => {
+    fetch("http://localhost:5000/watchlist", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: review.name,
+        description: review.description,
+        photo: review.photo,
+        rating: review.rating,
+        email: user.email,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          toast.success("Added to Wishlist Successfully!");
+        } else {
+          toast.error("Failed to add to Wishlist. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("An error occurred. Please try again.");
+      });
+  };
+
   return (
     <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
       <div>
@@ -36,7 +69,10 @@ const HomeCard = ({ review }) => {
           </Link>
         </div>
         <div>
-          <i className="fa-solid fa-heart text-xl text-red-500 btn"></i>
+          <i
+            onClick={() => handleAddWishList(review)}
+            className="fa-solid fa-heart text-xl text-red-500 btn"
+          ></i>
         </div>
       </div>
     </div>
