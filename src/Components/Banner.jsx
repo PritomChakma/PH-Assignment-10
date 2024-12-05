@@ -37,7 +37,7 @@ const Banner = () => {
               }}
             >
               <div className="bg-opacity-45 hero-overlay"></div>
-              <div className="hero-content text-neutral-content ">
+              <div className="hero-content text-white ">
                 <div className="max-w-md">
                   <h1 className="mb-5 text-5xl font-bold">Asphalt 9</h1>
                   <p className="mb-5">
@@ -61,7 +61,7 @@ const Banner = () => {
               }}
             >
               <div className="bg-opacity-45 hero-overlay"></div>
-              <div className="hero-content text-neutral-content">
+              <div className="hero-content text-white">
                 <div className="max-w-md">
                   <h1 className="mb-5 text-5xl font-bold">Clash of Clans</h1>
                   <p className="mb-5">
@@ -86,7 +86,7 @@ const Banner = () => {
               }}
             >
               <div className="bg-opacity-60 hero-overlay"></div>
-              <div className="hero-content text-neutral-content ">
+              <div className="hero-content text-white ">
                 <div className="max-w-md">
                   <h1 className="mb-5 text-5xl font-bold">
                     The Legend of Zelda

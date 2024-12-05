@@ -1,7 +1,7 @@
 import { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 import { AuthContex } from "../Router/AuthProvider";
-
 const ExploreDetails = () => {
   const { user } = useContext(AuthContex);
 
@@ -25,8 +25,14 @@ const ExploreDetails = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          alert("Added to Wishlist!");
+          toast.success("Added to Wishlist Successfully!");
+        } else {
+          toast.error("Failed to add to Wishlist. Please try again.");
         }
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("An error occurred. Please try again.");
       });
   };
 
