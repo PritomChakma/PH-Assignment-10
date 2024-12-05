@@ -4,10 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-import banner2 from "../assets/ban10.jpg";
-import banner3 from "../assets/ban11.jpg";
-import banner1 from "../assets/wild.webp";
+import banner1 from "../assets/car.jpeg";
+import banner2 from "../assets/clash.jpg";
+import banner3 from "../assets/wild.webp";
 
 // import required modules
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -40,13 +39,16 @@ const Banner = () => {
               <div className="bg-opacity-45 hero-overlay"></div>
               <div className="hero-content text-neutral-content ">
                 <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                  <h1 className="mb-5 text-5xl font-bold">Asphalt 9</h1>
                   <p className="mb-5">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                    assumenda excepturi exercitationem quasi. In deleniti eaque
-                    aut repudiandae et a id nisi.
+                    Asphalt 9: Legends is an arcade racing game developed and
+                    published by Gameloft, released in 2018. It is the latest
+                    installment in the Asphalt series and offers an exciting,
+                    fast-paced racing experience.
                   </p>
-                  <button className="btn btn-primary">Get Started</button>
+                  <button className="btn bg-gray-900 text-white">
+                    Get Started
+                  </button>
                 </div>
               </div>
             </div>
@@ -61,13 +63,16 @@ const Banner = () => {
               <div className="bg-opacity-45 hero-overlay"></div>
               <div className="hero-content text-neutral-content">
                 <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                  <h1 className="mb-5 text-5xl font-bold">Clash of Clans</h1>
                   <p className="mb-5">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                    assumenda excepturi exercitationem quasi. In deleniti eaque
-                    aut repudiandae et a id nisi.
+                    Clash of Clans (CoC) is a popular free-to-play mobile
+                    strategy game developed and published by Supercell. Released
+                    in 2012, it has remained a favorite among gamers for its mix
+                    of base-building, resource management, and strategic combat.
                   </p>
-                  <button className="btn btn-primary">Get Started</button>
+                  <button className="btn bg-gray-900 text-white">
+                    Get Started
+                  </button>
                 </div>
               </div>
             </div>
@@ -80,16 +85,22 @@ const Banner = () => {
                 backgroundImage: `url(${banner3})`,
               }}
             >
-              <div className="bg-opacity-30 hero-overlay"></div>
+              <div className="bg-opacity-60 hero-overlay"></div>
               <div className="hero-content text-neutral-content ">
                 <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                  <h1 className="mb-5 text-5xl font-bold">
+                    The Legend of Zelda
+                  </h1>
                   <p className="mb-5">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                    assumenda excepturi exercitationem quasi. In deleniti eaque
-                    aut repudiandae et a id nisi.
+                    The Legend of Zelda: Breath of the Wild (BotW) is an
+                    open-world action-adventure game developed and published by
+                    Nintendo. Released in 2017 for the Nintendo Switch and Wii
+                    U, it is widely considered one of the greatest video games
+                    of all time.
                   </p>
-                  <button className="btn btn-primary">Get Started</button>
+                  <button className="btn bg-gray-900 text-white">
+                    Get Started
+                  </button>
                 </div>
               </div>
             </div>

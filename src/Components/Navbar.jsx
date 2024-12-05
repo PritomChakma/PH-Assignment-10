@@ -74,7 +74,6 @@ const Navbar = () => {
           <a className="text-xl font-bold">GameHaven</a>
         </div>
 
-        {/* Navbar Center */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-4">
             <li>
