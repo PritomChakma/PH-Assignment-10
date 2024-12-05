@@ -144,7 +144,7 @@ const AddReview = () => {
             <input
               type="submit"
               value="Submit"
-              className="btn  bg-[#D12F42] text-white w-full  px-6 py-3 rounded-lg my-4"
+              className="btn  bg-[#D12F42] hover:bg-gray-900 text-white w-full  px-6 py-3 rounded-lg my-4"
             />
           </form>
         </div>

@@ -18,7 +18,7 @@ const ReviewCard = ({ review }) => {
         description: review.description,
         photo: review.photo,
         rating: review.rating,
-        email: user?.email, // Optional chaining in case user is not logged in
+        email: user?.email, 
       }),
     })
       .then((res) => res.json())
@@ -71,7 +71,7 @@ const ReviewCard = ({ review }) => {
         <div>
           <i
             onClick={() => handleAddWishList(review)}
-            className="fa-solid fa-heart text-xl text-red-500 cursor-pointer"
+            className="fa-solid fa-heart text-xl text-red-500 hover:text-red-700 cursor-pointer"
           ></i>
         </div>
       </div>
