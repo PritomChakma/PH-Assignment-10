@@ -1,14 +1,13 @@
-
 import React from "react";
 import { useTypewriter } from "react-simple-typewriter";
 
 const TypeWriter = () => {
   const [text] = useTypewriter({
     words: [
-      "Welcome to GameQuest",
+      "Welcome to GameHaven",
       "Explore Latest Reviews",
       "Top Gaming Picks",
-      "Dive Into the World of Gaming!"
+      "Dive Into the World of Gaming!",
     ],
     loop: 0,
   });
@@ -24,4 +23,3 @@ const TypeWriter = () => {
 };
 
 export default TypeWriter;
-

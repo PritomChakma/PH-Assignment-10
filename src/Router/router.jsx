@@ -9,6 +9,7 @@ import Login from "../Pages/Login";
 import MyReview from "../Pages/MyReview";
 import Registration from "../Pages/Registration";
 import PrivateRoute from "./PrivateRoute";
+import UpdatedReview from "../Components/UpdatedReview";
 
 const router = createBrowserRouter([
   {
@@ -50,8 +51,8 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/exploreDetails/:id",
-        element: <ExploreDetails></ExploreDetails>,
+        path: "/updateReview/:id",
+        element: <UpdatedReview></UpdatedReview>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allReview/${params.id}`),
       },
