@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContex } from "../Router/AuthProvider";
 
@@ -28,7 +28,6 @@ const Navbar = () => {
   return (
     <div className="bg-gray-900 text-white">
       <div className="navbar h-20 px-4">
-        {/* Navbar Start */}
         <div className="navbar-start">
           <div className="dropdown">
             <button
@@ -55,11 +54,21 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-gray-900 text-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li><NavLink to="/">Home</NavLink></li>
-              <li><NavLink to="/allReview">All Reviews</NavLink></li>
-              <li><NavLink to="/addReview">Add Review</NavLink></li>
-              <li><NavLink to="/myReview">My Reviews</NavLink></li>
-              <li><NavLink to="/gameWatchList">WatchList</NavLink></li>
+              <li>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/allReview">All Reviews</NavLink>
+              </li>
+              <li>
+                <NavLink to="/addReview">Add Review</NavLink>
+              </li>
+              <li>
+                <NavLink to="/myReview">My Reviews</NavLink>
+              </li>
+              <li>
+                <NavLink to="/gameWatchList">WatchList</NavLink>
+              </li>
             </ul>
           </div>
           <a className="text-xl font-bold">GameHaven</a>
@@ -68,17 +77,25 @@ const Navbar = () => {
         {/* Navbar Center */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-4">
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/allReview">All Reviews</NavLink></li>
-            <li><NavLink to="/addReview">Add Review</NavLink></li>
-            <li><NavLink to="/myReview">My Reviews</NavLink></li>
-            <li><NavLink to="/gameWatchList">WatchList</NavLink></li>
+            <li>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/allReview">All Reviews</NavLink>
+            </li>
+            <li>
+              <NavLink to="/addReview">Add Review</NavLink>
+            </li>
+            <li>
+              <NavLink to="/myReview">My Reviews</NavLink>
+            </li>
+            <li>
+              <NavLink to="/gameWatchList">WatchList</NavLink>
+            </li>
           </ul>
         </div>
 
-        {/* Navbar End */}
         <div className="navbar-end flex items-center space-x-4">
-          {/* Theme Toggle */}
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +119,6 @@ const Navbar = () => {
             />
           </div>
 
-          {/* User Section */}
           <div className="relative group">
             {user ? (
               <img
@@ -126,10 +142,7 @@ const Navbar = () => {
               Log Out
             </NavLink>
           ) : (
-            <NavLink
-              to="/login"
-              className="btn btn-sm btn-primary"
-            >
+            <NavLink to="/login" className="btn btn-sm btn-primary">
               Log in
             </NavLink>
           )}
