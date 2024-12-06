@@ -6,7 +6,6 @@ const Footer = () => {
       <footer className="bg-gray-900 text-gray-300 py-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* About Section */}
             <div>
               <h2 className="text-xl font-bold text-white mb-4">Game Haven</h2>
               <p className="text-sm">
@@ -16,7 +15,6 @@ const Footer = () => {
               </p>
             </div>
 
-            {/* Navigation Links */}
             <div>
               <h2 className="text-xl font-bold text-white mb-4">Quick Links</h2>
               <ul className="space-y-2">
@@ -38,7 +36,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Newsletter Subscription */}
             <div>
               <h2 className="text-xl font-bold text-white mb-4">Subscribe</h2>
               <p className="text-sm mb-4">
@@ -58,7 +55,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Social Media Links */}
           <div className="mt-8 flex justify-center space-x-6">
             <a
               href="https://www.facebook.com/pritom.chakma.716/"
@@ -83,7 +79,6 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Footer Bottom */}
           <div className="mt-8 text-center text-sm text-gray-500">
             <p>&copy; 2024 GameReviewsHub. All Rights Reserved</p>
             <p>Designed with by Pritom</p>
