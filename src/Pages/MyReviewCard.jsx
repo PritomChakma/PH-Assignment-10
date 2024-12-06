@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyReviewCard = ({ myRev, myReview, setMyReview }) => {
-  const { _id, photo, name, description, rating } = myRev;
+  const { _id, photo, name, description, rating ,genres} = myRev;
 
   const handleDelete = (_id) => {
     Swal.fire({
@@ -48,6 +48,13 @@ const MyReviewCard = ({ myRev, myReview, setMyReview }) => {
         />
         <h2 className="mb-1 text-xl font-semibold">{name}</h2>
         <p className="text-sm dark:text-gray-600">{description}</p>
+      </div>
+
+      <div>
+        <h3>
+          <span>Genres:</span>
+          {genres}
+        </h3>
       </div>
 
       <div className="flex justify-between">

@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h2 className="text-xl font-bold text-white mb-4">Game Haven</h2>
+              <h2 className="text-xl font-bold text-white mb-4">ChillGamer</h2>
               <p className="text-sm">
                 GameReviewsHub is your go-to platform for unbiased reviews, the
                 latest gaming news, and community discussions. We bring the

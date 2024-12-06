@@ -14,8 +14,9 @@ const AddReview = () => {
     const photo = form.photo.value;
     const rating = form.rating.value;
     const year = form.year.value;
+    const genres = form.genres.value;
     const description = form.description.value;
-    const addReview = { name, photo, rating, year, description, email };
+    const addReview = { name, photo, rating, year, description, email, genres };
     console.log(addReview);
 
     // send data to the server
@@ -94,7 +95,7 @@ const AddReview = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="form-control">
-                <label htmlFor="rating">
+                <label>
                   <span className="label-text font-semibold text-white">
                     Rating (1-10):
                   </span>
@@ -111,7 +112,7 @@ const AddReview = () => {
                 />
               </div>
               <div className="form-control">
-                <label htmlFor="year">
+                <label>
                   <span className="label-text font-semibold text-white">
                     Publish Year:
                   </span>
@@ -127,6 +128,24 @@ const AddReview = () => {
                 />
               </div>
             </div>
+
+            <div class="flex flex-col w-full">
+              <label>
+                <span className="label-text font-semibold text-white">
+                  Select a Genre:
+                </span>
+              </label>
+              <select
+                name="genres"
+                className="bg-gray-900 text-gray-200 placeholder-gray-400 w-8/12 md:w-1/2 p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              >
+                <option value="action">Action</option>
+                <option value="rpg">RPG</option>
+                <option value="adventure">Adventure</option>
+                <option value="sports">Sports</option>
+              </select>
+            </div>
+
             <div className="form-control">
               <label htmlFor="description">
                 <span className="label-text font-semibold text-white">

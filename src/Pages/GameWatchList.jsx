@@ -44,11 +44,7 @@ const GameWatchList = () => {
                 <td className="px-4 py-2">{item.name}</td>
                 <td className="px-4 py-2">{item.email}</td>
                 <td className="px-4 py-2 text-black">{item.rating}/10</td>
-                <td className="px-4 py-2">
-                  <button className="py-2 px-4 text-white rounded-full bg-red-600 dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-800">
-                    Remove
-                  </button>
-                </td>
+                <td className="px-4 py-2">{item.genres}</td>
               </tr>
             ))}
           </tbody>
@@ -60,10 +56,8 @@ const GameWatchList = () => {
 
 export default GameWatchList;
 
-
-
-
-{/* <div className="flex justify-between">
+{
+  /* <div className="flex justify-between">
 <Link to={`/updateReview/${_id}`}>
   <div>
     <button className="btn bg-gray-800 text-white">Update</button>
@@ -77,4 +71,5 @@ export default GameWatchList;
     <i className="fa-solid fa-trash"></i>
   </button>
 </div>
-</div> */}
+</div> */
+}

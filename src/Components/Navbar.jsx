@@ -71,7 +71,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="text-xl font-bold">GameHaven</a>
+          <a className="text-xl font-bold">ChillGamer</a>
         </div>
 
         <div className="navbar-center hidden lg:flex">

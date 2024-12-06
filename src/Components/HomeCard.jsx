@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContex } from "../Router/AuthProvider";
 const HomeCard = ({ review }) => {
   const { user } = useContext(AuthContex);
-  const { photo, name, description, rating } = review;
+  const { photo, name, description, rating,genres } = review;
 
   const handleAddWishList = (review) => {
     fetch("https://ph-assignment-10-server-six.vercel.app/watchlist", {
@@ -17,6 +17,7 @@ const HomeCard = ({ review }) => {
         description: review.description,
         photo: review.photo,
         rating: review.rating,
+        genres: review.genres,
         email: user.email,
       }),
     })
@@ -45,6 +46,14 @@ const HomeCard = ({ review }) => {
         />
         <h2 className="mb-1 text-xl font-semibold">{name}</h2>
         <p className="text-sm dark:text-gray-600">{description}</p>
+      </div>
+
+
+      <div>
+        <h3>
+          <span className="font-bold mr-2">Genres:</span>
+          {genres}
+        </h3>
       </div>
 
       <div className="flex justify-between">
