@@ -29,7 +29,7 @@ https://ph-assignment-10-22d95.web.app
    - Optimized for mobile, tablet, and desktop devices.
    - Use both dark and light mode toggles.
 
-## 📋 Key Pages and Functionality
+## Key Pages and Functionality
 
 ### 1. Home Page
 
