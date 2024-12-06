@@ -50,10 +50,11 @@ const AddReview = () => {
           Add Review
         </h2>
         <p className="text-center text-sm md:text-base lg:text-lg md:w-8/12 lg:w-7/12 mx-auto mb-10 text-white">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters.
+          The Game Review Form allows users to submit detailed feedback about
+          their gaming experience. It includes fields for the game title,
+          rating, review text, and optional screenshots. Designed for easy use,
+          it helps gather insights into gameplay quality, graphics, controls,
+          and overall user satisfaction.
         </p>
 
         <div className="backdrop-blur-sm rounded-lg bg-gray-800 bg-opacity-50 p-6 sm:p-8 md:p-12">

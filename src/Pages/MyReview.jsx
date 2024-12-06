@@ -4,6 +4,7 @@ import MyReviewCard from "./MyReviewCard";
 
 const MyReview = () => {
   const { user } = useContext(AuthContex);
+  // console.log(user.email);
   const [myReview, setMyReview] = useState([]);
 
   useEffect(() => {
