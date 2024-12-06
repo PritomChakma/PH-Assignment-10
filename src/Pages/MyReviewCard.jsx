@@ -55,7 +55,7 @@ const MyReviewCard = ({ myRev, myReview, setMyReview }) => {
               <div className="flex items-center gap-3">
                 <div className="avatar">
                   <div className="mask mask-squircle h-12 w-12">
-                    <img src={photo} alt="Avatar Tailwind CSS Component" />
+                    <img src={photo}  />
                   </div>
                 </div>
                 <div>

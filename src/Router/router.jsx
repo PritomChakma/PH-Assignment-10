@@ -4,6 +4,7 @@ import UpdatedReview from "../Components/UpdatedReview";
 import MainLayout from "../Layout/MainLayout";
 import AddReview from "../Pages/AddReview";
 import AllReview from "../Pages/AllReview";
+import ErrorPage from "../Pages/ErrorPage";
 import GameWatchList from "../Pages/GameWatchList";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
