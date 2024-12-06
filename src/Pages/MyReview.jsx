@@ -18,7 +18,7 @@ const MyReview = () => {
   }, [user]);
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 w-11/12 mx-auto py-5">
+    <div className=" py-5">
       {myReview.map((myRev) => (
         <MyReviewCard
           key={myRev._id}

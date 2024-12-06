@@ -63,7 +63,11 @@ const router = createBrowserRouter([
 
       {
         path: "/exploreDetails/:id",
-        element: <ExploreDetails></ExploreDetails>,
+        element: (
+          <PrivateRoute>
+            <ExploreDetails></ExploreDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://ph-assignment-10-server-six.vercel.app/allReview/${params.id}`

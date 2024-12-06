@@ -56,20 +56,9 @@ const GameWatchList = () => {
 
 export default GameWatchList;
 
-{
-  /* <div className="flex justify-between">
-<Link to={`/updateReview/${_id}`}>
-  <div>
-    <button className="btn bg-gray-800 text-white">Update</button>
-  </div>
-</Link>
-<div>
-  <button
-    onClick={() => handleDelete(_id)}
-    className="btn join-item bg-[#EA4744] text-white"
-  >
-    <i className="fa-solid fa-trash"></i>
-  </button>
-</div>
-</div> */
-}
+
+
+
+
+
+
