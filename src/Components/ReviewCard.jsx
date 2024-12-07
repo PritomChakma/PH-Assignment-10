@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 import { AuthContex } from "../Router/AuthProvider";
 
 const ReviewCard = ({ review }) => {
@@ -73,10 +74,17 @@ const ReviewCard = ({ review }) => {
       <div className="flex justify-between">
         <div>
           <Link to={`/exploreDetails/${review._id}`}>
-            <button className="btn rounded-full px-4 bg-gray-900 text-white">
+            <button
+              id="my-anchor-element-id"
+              className="btn rounded-full px-4 bg-gray-900 text-white"
+            >
               Explore Details
             </button>
           </Link>
+          <Tooltip
+            anchorSelect="#my-anchor-element-id"
+            content=" Click The Button You can see Details"
+          />
         </div>
         <div>
           <button

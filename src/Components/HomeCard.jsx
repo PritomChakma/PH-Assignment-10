@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 import { AuthContex } from "../Router/AuthProvider";
 const HomeCard = ({ review }) => {
   const { user } = useContext(AuthContex);
-  const { photo, name, description, rating,genres } = review;
+  const { photo, name, description, rating, genres } = review;
 
   const handleAddWishList = (review) => {
     fetch("https://ph-assignment-10-server-six.vercel.app/watchlist", {
@@ -48,7 +49,6 @@ const HomeCard = ({ review }) => {
         <p className="text-sm dark:text-gray-600">{description}</p>
       </div>
 
-
       <div>
         <h3>
           <span className="font-bold mr-2">Genres:</span>
@@ -63,6 +63,7 @@ const HomeCard = ({ review }) => {
             {rating}/10
           </p>
         </div>
+
         <div className="flex text-orange-500">
           <i className="fa-solid fa-star"></i>
           <i className="fa-solid fa-star"></i>
@@ -74,10 +75,17 @@ const HomeCard = ({ review }) => {
       <div className="flex justify-between">
         <div>
           <Link to={`/exploreDetails/${review._id}`}>
-            <button className="btn rounded-full px-4 bg-gray-900 text-white">
+            <button
+              id="my-anchor-element-id"
+              className="btn rounded-full px-4 bg-gray-900 text-white"
+            >
               Explore Details
             </button>
           </Link>
+          <Tooltip
+            anchorSelect="#my-anchor-element-id"
+            content=" Click The Button You can see Details"
+          />
         </div>
         <div>
           <button
