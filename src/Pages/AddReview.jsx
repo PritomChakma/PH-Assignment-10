@@ -17,7 +17,7 @@ const AddReview = () => {
     const genres = form.genres.value;
     const description = form.description.value;
     const addReview = { name, photo, rating, year, description, email, genres };
-    console.log(addReview);
+    // console.log(addReview);
 
     // send data to the server
     fetch("https://ph-assignment-10-server-six.vercel.app/allReview", {
@@ -29,7 +29,7 @@ const AddReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "success",

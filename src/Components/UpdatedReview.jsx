@@ -7,7 +7,7 @@ const UpdatedReview = () => {
   const { user } = useContext(AuthContex);
   const review = useLoaderData() || {};
   const { _id, photo, name, description, rating, year ,genres} = review;
-  console.log(name);
+  // console.log(name);
   const handleUpdateReview = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -19,7 +19,7 @@ const UpdatedReview = () => {
     const genres = form.genres.value;
     const description = form.description.value;
     const addReview = { name, photo, rating, year, description, email,genres };
-    console.log(addReview);
+    // console.log(addReview);
 
     // send data to the server
     fetch(`https://ph-assignment-10-server-six.vercel.app/myReview/${_id}`, {

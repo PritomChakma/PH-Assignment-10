@@ -8,6 +8,13 @@ const ReviewCard = ({ review }) => {
   const { user } = useContext(AuthContex);
   const { photo, name, description, rating, genres } = review;
 
+
+
+
+
+
+
+
   const handleAddWishList = (review) => {
     fetch("https://ph-assignment-10-server-six.vercel.app/watchlist", {
       method: "POST",
@@ -38,6 +45,10 @@ const ReviewCard = ({ review }) => {
   };
 
   return (
+
+
+
+
     <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
       <div>
         <img

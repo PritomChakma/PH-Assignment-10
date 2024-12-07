@@ -41,7 +41,7 @@ const Registration = () => {
     const email = form.email.value;
     const password = form.password.value;
     const user = { name, email, password, photo };
-    console.log(user);
+    // console.log(user);
     if (!validatePassword(password)) {
       return;
     }

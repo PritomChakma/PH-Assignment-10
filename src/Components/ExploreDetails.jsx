@@ -23,7 +23,7 @@ const ExploreDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           toast.success("Added to Wishlist Successfully!");
         } else {
@@ -31,7 +31,7 @@ const ExploreDetails = () => {
         }
       })
       .catch((error) => {
-        console.error(error);
+        // console.error(error);
         toast.error("An error occurred. Please try again.");
       });
   };

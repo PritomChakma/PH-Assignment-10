@@ -13,26 +13,26 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     const user = { email, password };
-    console.log(user);
+    // console.log(user);
 
     // login user
     loginUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         e.target.reset();
         navigate("/");
         toast.success("Login successfully");
       })
       .catch((error) => {
         toast.error("Login failed. Please try again.");
-        console.log("ERROR", error.message);
+        // console.log("ERROR", error.message);
       });
   };
 
   const handdleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         e.target.reset();
         navigate("/");
         toast.success("Login successfully");
