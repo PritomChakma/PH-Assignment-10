@@ -39,7 +39,7 @@ const Login = () => {
       })
       .catch((error) => {
         toast.success("Google Login successfully");
-        console.log("ERROR", error.message);
+        // console.log("ERROR", error.message);
       });
   };
 
