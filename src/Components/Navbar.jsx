@@ -31,7 +31,7 @@ const Navbar = () => {
   };
 
   const toggleDropdown = () => {
-    setIsDropdownOpen((prevState) => !prevState); 
+    setIsDropdownOpen((prevState) => !prevState);
   };
 
   return (
@@ -43,7 +43,7 @@ const Navbar = () => {
               tabIndex={0}
               className="btn btn-ghost lg:hidden"
               aria-label="Toggle Menu"
-              onClick={toggleDropdown} 
+              onClick={toggleDropdown}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +60,7 @@ const Navbar = () => {
                 />
               </svg>
             </button>
-            {isDropdownOpen && ( 
+            {isDropdownOpen && (
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-gray-900 text-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
@@ -71,15 +71,19 @@ const Navbar = () => {
                 <li>
                   <NavLink to="/allReview">All Reviews</NavLink>
                 </li>
-                <li>
-                  <NavLink to="/addReview">Add Review</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/myReview">My Reviews</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/gameWatchList">WatchList</NavLink>
-                </li>
+                {user && (
+                  <>
+                    <li>
+                      <NavLink to="/addReview">Add Review</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/myReview">My Reviews</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/gameWatchList">WatchList</NavLink>
+                    </li>
+                  </>
+                )}
               </ul>
             )}
           </div>
@@ -94,15 +98,19 @@ const Navbar = () => {
             <li>
               <NavLink to="/allReview">All Reviews</NavLink>
             </li>
-            <li>
-              <NavLink to="/addReview">Add Review</NavLink>
-            </li>
-            <li>
-              <NavLink to="/myReview">My Reviews</NavLink>
-            </li>
-            <li>
-              <NavLink to="/gameWatchList">WatchList</NavLink>
-            </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink to="/addReview">Add Review</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/myReview">My Reviews</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/gameWatchList">WatchList</NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
 

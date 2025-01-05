@@ -1,7 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "../Components/Banner";
+import FeaturedGames from "../Components/FeaturedGames";
 import HomeCard from "../Components/HomeCard";
 import TypeWriter from "../Components/TypeWriter";
+import GameSection from "../Components/GameSection";
 
 const Home = () => {
   const reviews = useLoaderData();
@@ -26,6 +28,9 @@ const Home = () => {
           <HomeCard key={review._id} review={review}></HomeCard>
         ))}
       </div>
+
+      <GameSection></GameSection>
+      <FeaturedGames></FeaturedGames>
     </div>
   );
 };
