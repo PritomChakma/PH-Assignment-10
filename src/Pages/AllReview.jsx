@@ -9,7 +9,6 @@ const AllReview = () => {
   const [sort, setSort] = useState();
   console.log(data);
 
-
   const handleSortData = (sortType) => {
     setSort(sortType);
     if (sortType === "publish year") {
@@ -34,7 +33,7 @@ const AllReview = () => {
       <div className="flex justify-center">
         <div className="dropdown dropdown-bottom">
           <div tabIndex={0} role="button" className="btn text-3xl m-1">
-          <MdOutlineSort />
+            <MdOutlineSort />
           </div>
           <ul
             tabIndex={0}
@@ -77,9 +76,9 @@ const AllReview = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 w-11/12 mx-auto py-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 w-11/12 mx-auto py-5">
         {reviews.map((review) => (
-          <ReviewCard key={review._id} review={review}></ReviewCard>
+          <ReviewCard key={review._id} review={review} />
         ))}
       </div>
     </div>

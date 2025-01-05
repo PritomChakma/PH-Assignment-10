@@ -8,13 +8,6 @@ const ReviewCard = ({ review }) => {
   const { user } = useContext(AuthContex);
   const { photo, name, description, rating, genres } = review;
 
-
-
-
-
-
-
-
   const handleAddWishList = (review) => {
     fetch("https://ph-assignment-10-server-six.vercel.app/watchlist", {
       method: "POST",
@@ -45,35 +38,29 @@ const ReviewCard = ({ review }) => {
   };
 
   return (
-
-
-
-
-    <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
-      <div>
+    <div className="flex flex-col max-w-xs p-3 space-y-3 rounded-lg shadow-md dark:bg-gray-800 dark:text-white">
+      <div className="relative">
+        {/* Image with proper cover */}
         <img
           src={photo}
           alt="Review"
-          className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500"
+          className="object-cover w-full h-32 mb-3 rounded-lg dark:bg-gray-500"
         />
-        <h2 className="mb-1 text-xl font-semibold">{name}</h2>
-        <p className="text-sm dark:text-gray-600">{description}</p>
       </div>
 
+      <h2 className="text-lg font-semibold mb-2">{name}</h2>
+      <p className="text-xs mb-2">{description}</p>
+
       <div>
-        <h3>
-          <span className="font-bold mr-2">Genres:</span>
-          {genres}
+        <h3 className="text-xs font-medium">
+          <span className="font-semibold">Genres:</span> {genres}
         </h3>
       </div>
 
-      <div className="flex justify-between">
-        <div>
-          <p>
-            <span className="font-bold mr-2">Rating:</span>
-            {rating}/10
-          </p>
-        </div>
+      <div className="flex justify-between items-center text-xs mb-2">
+        <p>
+          <span className="font-semibold">Rating:</span> {rating}/10
+        </p>
         <div className="flex text-orange-500">
           <i className="fa-solid fa-star"></i>
           <i className="fa-solid fa-star"></i>
@@ -82,29 +69,26 @@ const ReviewCard = ({ review }) => {
           <i className="fa-regular fa-star"></i>
         </div>
       </div>
-      <div className="flex justify-between">
-        <div>
-          <Link to={`/exploreDetails/${review._id}`}>
-            <button
-              id="my-anchor-element-id"
-              className="btn rounded-full px-4 bg-gray-900 text-white"
-            >
-              Explore Details
-            </button>
-          </Link>
-          <Tooltip
-            anchorSelect="#my-anchor-element-id"
-            content=" Click The Button You can see Details"
-          />
-        </div>
-        <div>
+
+      <div className="flex justify-between items-center">
+        <Link to={`/exploreDetails/${review._id}`}>
           <button
-            onClick={() => handleAddWishList(review)}
-            className="btn rounded-full px-4 text-white bg-[#9538E2]"
+            id="my-anchor-element-id"
+            className="btn btn-sm rounded-full px-4 py-1 bg-gray-900 text-white hover:bg-gray-800 transition duration-300"
           >
-            Add to WatchList
+            View Details
           </button>
-        </div>
+        </Link>
+        <Tooltip
+          anchorSelect="#my-anchor-element-id"
+          content="Click the button to see details"
+        />
+        <button
+          onClick={() => handleAddWishList(review)}
+          className="btn btn-sm rounded-full px-4 py-1 text-white bg-[#9538E2] hover:bg-[#7b2af7] transition duration-300"
+        >
+          Add to WatchList
+        </button>
       </div>
     </div>
   );
