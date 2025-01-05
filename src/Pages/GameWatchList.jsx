@@ -16,7 +16,7 @@ const GameWatchList = () => {
   }, [user]);
 
   return (
-    <div className="wishlist-container px-4 py-6">
+    <div className="wishlist-container px-4 py-6 mt-20">
       <div className="overflow-x-auto">
         <table className="table-auto w-full bg-white dark:bg-gray-800 shadow-lg rounded-lg text-black dark:text-gray-300">
           <thead className="bg-gray-100 dark:bg-gray-700">

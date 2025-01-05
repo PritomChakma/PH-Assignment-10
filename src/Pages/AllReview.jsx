@@ -30,7 +30,7 @@ const AllReview = () => {
   };
 
   return (
-    <div>
+    <div className="mt-20">
       <div className="flex justify-center">
         <div className="dropdown dropdown-bottom">
           <div tabIndex={0} role="button" className="btn text-3xl m-1">

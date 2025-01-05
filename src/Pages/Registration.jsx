@@ -62,9 +62,9 @@ const Registration = () => {
   };
 
   return (
-    <div>
+    <div className="mt-20">
       <div
-        className="min-h-screen bg-gray-900 flex items-center justify-center"
+        className="min-h-screen bg-gray-900 flex items-center justify-center py-10"
         style={{
           backgroundImage: `url(${banner})`,
           backgroundSize: "cover",

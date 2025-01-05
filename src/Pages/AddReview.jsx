@@ -42,7 +42,7 @@ const AddReview = () => {
   };
 
   return (
-    <div>
+    <div className="mt-20">
       <div
         className="bg-cover bg-center p-4 sm:p-8 md:p-12 lg:p-24"
         style={{ backgroundImage: `url(${banner})` }}

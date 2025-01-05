@@ -13,7 +13,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="mt-20">
       <div className=" ">
         <Swiper
           spaceBetween={30}

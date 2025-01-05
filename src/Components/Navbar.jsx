@@ -5,6 +5,7 @@ import { AuthContex } from "../Router/AuthProvider";
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContex);
   const [theme, setTheme] = useState("light");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "light";
@@ -29,8 +30,12 @@ const Navbar = () => {
       });
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prevState) => !prevState); 
+  };
+
   return (
-    <div className="bg-gray-900 text-white">
+    <div className="bg-gray-900 text-white shadow-md fixed top-0 left-0 w-full z-50">
       <div className="navbar h-20 px-4">
         <div className="navbar-start">
           <div className="dropdown">
@@ -38,6 +43,7 @@ const Navbar = () => {
               tabIndex={0}
               className="btn btn-ghost lg:hidden"
               aria-label="Toggle Menu"
+              onClick={toggleDropdown} 
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -54,26 +60,28 @@ const Navbar = () => {
                 />
               </svg>
             </button>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-gray-900 text-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <NavLink to="/">Home</NavLink>
-              </li>
-              <li>
-                <NavLink to="/allReview">All Reviews</NavLink>
-              </li>
-              <li>
-                <NavLink to="/addReview">Add Review</NavLink>
-              </li>
-              <li>
-                <NavLink to="/myReview">My Reviews</NavLink>
-              </li>
-              <li>
-                <NavLink to="/gameWatchList">WatchList</NavLink>
-              </li>
-            </ul>
+            {isDropdownOpen && ( 
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-gray-900 text-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <NavLink to="/">Home</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/allReview">All Reviews</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/addReview">Add Review</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/myReview">My Reviews</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/gameWatchList">WatchList</NavLink>
+                </li>
+              </ul>
+            )}
           </div>
           <a className="text-xl font-bold">Game Haven</a>
         </div>

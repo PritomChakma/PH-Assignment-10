@@ -18,7 +18,7 @@ const MyReview = () => {
   }, [user]);
 
   return (
-    <div className=" py-5">
+    <div className=" py-5 mt-20">
       {myReview.map((myRev) => (
         <MyReviewCard
           key={myRev._id}
